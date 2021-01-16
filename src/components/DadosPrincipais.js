@@ -1,6 +1,6 @@
 export default props => (
 
-    <div className="col-md-3">
+    <div className="col-md-2">
 
         <div className="row">
             <div className="col-md-12">
