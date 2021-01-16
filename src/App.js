@@ -1,17 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import DadosPrincipais from './components/DadosPrincipais'
+import Produtos from './components/Produtos'
+import Totalizacao from './components/Totalizacao'
+
 
 function App() {
   return (
-    <div className="row center">
-      <div className="col-md-4">
-        1
-      </div>
-      <div className="col-md-4">
-        2
-      </div>
-      <div className="col-md-4">
-        3
-      </div>
+    <div className="row">
+      
+      <DadosPrincipais />
+      <Produtos />
+      <Totalizacao />
+      
     </div>
   );
 }
