@@ -1,16 +1,15 @@
-import {useContext} from 'react';
-import ProdutoContext from '../context/DataContext'
+import {useStateValue} from '../context/state'
 
 
 export default (props) => {
 
-    const context = useContext(ProdutoContext);
+    const [state, dispatch] = useStateValue();
 
     return(
-        <div className="col-md-4">
-            <strong>Total:</strong> {context.nome}
+        <div className="col-md-3">
+            <strong>Total:</strong> {state.theme}
             <br />
-            <strong>Responsável:</strong> {context.total}
+            <strong>Responsável:</strong> 
         </div>
     )
 }

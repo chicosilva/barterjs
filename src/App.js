@@ -2,22 +2,33 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import DadosPrincipais from './components/DadosPrincipais'
 import Produtos from './components/Produtos'
 import Totalizacao from './components/Totalizacao'
-import DataContext, {data} from './context/DataContext'
+import {StateProvider} from './context/state'
 
+const inititalState = {theme: 'chicosilva'}
 
-function App() {
-
-  return (
-    <div className="row">
+const actions = (state, payload) => ({
+    changeTheme: () => {
       
-      <DataContext.Provider value={data}>
-        <DadosPrincipais />
-        <Produtos />
-        <Totalizacao />
-      </DataContext.Provider>
-      
-    </div>
-  );
+      return {...state, theme: payload}
+    },
+})
+
+const reducer = (state, action = {type: '', payload: {}}) => {
+  return actions(state, action.payload)[action.type]();
 }
+
+const App = () => (
+  <StateProvider reducer={reducer} inititalState={inititalState}>
+    {
+      <>
+        <div className="row">
+          <DadosPrincipais></DadosPrincipais>
+          <Produtos></Produtos>
+          <Totalizacao></Totalizacao>
+        </div>
+      </>
+    }
+  </StateProvider>
+)
 
 export default App;

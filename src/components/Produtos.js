@@ -7,7 +7,7 @@ export default (props) => {
 
     return (
         
-        <div className="col-md-6">
+        <div className="col-md-7">
         
             <div class="row">
                 

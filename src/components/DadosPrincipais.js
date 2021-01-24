@@ -1,28 +1,17 @@
-import DataContext from '../context/DataContext';
-import {useContext, useReducer} from 'react';
+
+import {useStateValue} from '../context/state'
+import Combo from './Combo'
 
 
 export default (props) => {
 
-    const context = useContext(DataContext)
+    const [state, dispatch] = useStateValue();
 
-    const redurcer = (state, action) => {
+    const handleClick = () => {
+
+        dispatch({type: 'changeTheme', payload: 'outro tema'})
         
-        const actions = {
-
-            add: () => {
-                return {count: state.count + 1}
-            },
-
-            decrement: () => {
-                return {count: state.count - 1}
-            }
-        }
-
-        return actions[action.type]();
     }
-
-    const [state, dispatch] = useReducer(redurcer, {count:0})
 
     return (<div className="col-md-2">
         
@@ -36,9 +25,7 @@ export default (props) => {
 
         <div className="row">
             <div className="col-md-12">
-                <select className="form-control">
-                    <option>Combo Cliente</option>    
-                </select>
+                <Combo label="Escolha um cliente" />
             </div>
         </div>
 
@@ -50,30 +37,11 @@ export default (props) => {
 
         <div className="row">
             <div className="col-md-12">
-                <select className="form-control">
-                    <option>Combo Fazenda</option>    
-                </select>
+                <Combo label="Escolha uma fazenda" />
             </div>
         </div>
 
-        <div className="row">
-            <div className="col-md-12">
-                <button onClick={() => dispatch({type: 'add'}) } > ADD </button>
-                <button onClick={() => dispatch({type: 'decrement'})} > INC </button>
-                {state.count}
-            </div>
-        </div>
-
-        <div className="row">
-            
-            <div className="col-md-4">
-                <br />
-                <strong>Total:</strong> {context.nome}
-                <br />
-                <strong>Responsável:</strong> {context.total}
-            </div>
-        </div>
-
+        
     </div>)
 
 }
