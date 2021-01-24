@@ -3,13 +3,9 @@ import DadosPrincipais from './components/DadosPrincipais'
 import Produtos from './components/Produtos'
 import Totalizacao from './components/Totalizacao'
 import {StateProvider} from './context/state'
+import {actions} from './context/actions'
 import {data} from './context/DataContext'
 
-const actions = (state, payload) => ({
-    selecionaCliente: () => {
-      return {...state, cliente: payload}
-    },
-})
 
 const reducer = (state, action = {type: '', payload: {}}) => {
   return actions(state, action.payload)[action.type]();
