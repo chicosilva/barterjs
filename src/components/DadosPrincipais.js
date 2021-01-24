@@ -1,18 +1,9 @@
 
-import {useStateValue} from '../context/state'
 import Combo from './Combo'
 import {data} from '../context/DataContext'
 
 
 export default (props) => {
-
-    const [state, dispatch] = useStateValue();
-
-    const handleClick = () => {
-
-        dispatch({type: 'changeTheme', payload: 'outro tema'})
-        
-    }
 
     return (<div className="col-md-2">
         
@@ -26,7 +17,7 @@ export default (props) => {
 
         <div className="row">
             <div className="col-md-12">
-                <Combo label="Escolha um cliente" itens={data.clientes} />
+                <Combo label="Escolha um cliente" itens={data.clientes} typeAction="selecionaCliente" />
             </div>
         </div>
 

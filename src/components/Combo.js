@@ -1,6 +1,4 @@
 import {useStateValue} from '../context/state'
-import {data} from '../context/DataContext'
-
 
 export default props => {
 
@@ -15,9 +13,8 @@ export default props => {
 
     const handleChange = (item) => {
         
-        const cliente = props.itens.find(c => c.id == item.target.value);
-        
-        dispatch({type: 'selecionaCliente', payload: cliente})
+        const obj = props.itens.find(c => c.id == item.target.value);
+        dispatch({type: props.typeAction, payload: obj})
     }
 
     return(
