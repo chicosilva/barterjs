@@ -3,12 +3,10 @@ import DadosPrincipais from './components/DadosPrincipais'
 import Produtos from './components/Produtos'
 import Totalizacao from './components/Totalizacao'
 import {StateProvider} from './context/state'
-
-const inititalState = {theme: 'chicosilva'}
+import {data} from './context/DataContext'
 
 const actions = (state, payload) => ({
-    changeTheme: () => {
-      
+    selecionaCliente: () => {
       return {...state, theme: payload}
     },
 })
@@ -18,7 +16,7 @@ const reducer = (state, action = {type: '', payload: {}}) => {
 }
 
 const App = () => (
-  <StateProvider reducer={reducer} inititalState={inititalState}>
+  <StateProvider reducer={reducer} inititalState={data}>
     {
       <>
         <div className="row">

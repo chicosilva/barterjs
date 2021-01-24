@@ -9,7 +9,7 @@ export default (props) => {
         
         <div className="col-md-7">
         
-            <div class="row">
+            <div className="row">
                 
                 <div className="col-md-12">
                     
