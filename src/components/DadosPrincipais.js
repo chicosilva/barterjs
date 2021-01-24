@@ -1,6 +1,7 @@
 
 import {useStateValue} from '../context/state'
 import Combo from './Combo'
+import {data} from '../context/DataContext'
 
 
 export default (props) => {
@@ -25,7 +26,7 @@ export default (props) => {
 
         <div className="row">
             <div className="col-md-12">
-                <Combo label="Escolha um cliente" />
+                <Combo label="Escolha um cliente" itens={data.clientes} />
             </div>
         </div>
 
@@ -37,7 +38,7 @@ export default (props) => {
 
         <div className="row">
             <div className="col-md-12">
-                <Combo label="Escolha uma fazenda" />
+                <Combo label="Escolha uma fazenda" itens={data.fazendas} />
             </div>
         </div>
 

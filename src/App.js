@@ -7,7 +7,7 @@ import {data} from './context/DataContext'
 
 const actions = (state, payload) => ({
     selecionaCliente: () => {
-      return {...state, theme: payload}
+      return {...state, cliente: payload}
     },
 })
 

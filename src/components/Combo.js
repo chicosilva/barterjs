@@ -5,8 +5,8 @@ import {data} from '../context/DataContext'
 export default props => {
 
     const [state, dispatch] = useStateValue();
-    
-    const options = data.clientes.map(item => <option 
+
+    const options = props.itens.map(item => <option 
             key={item.id}
             value={item.id}>
                 {item.nome}
@@ -14,7 +14,10 @@ export default props => {
         )
 
     const handleChange = (item) => {
-        //dispatch({type: 'selecionaCliente', payload: item})
+        
+        const cliente = props.itens.find(c => c.id == item.target.value);
+        
+        dispatch({type: 'selecionaCliente', payload: cliente})
     }
 
     return(

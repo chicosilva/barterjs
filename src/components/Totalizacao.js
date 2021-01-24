@@ -7,9 +7,11 @@ export default (props) => {
 
     return(
         <div className="col-md-3">
-            <strong>Total:</strong> {state.theme}
+            <strong>Total:</strong> R$ {state.valorTotal}
             <br />
-            <strong>Responsável:</strong> 
+            <strong>Cliente:</strong> {state.cliente.nome || "--"}
+            <br />
+            <strong>Responsável:</strong> {state.responsavel || "--"}
         </div>
     )
 }

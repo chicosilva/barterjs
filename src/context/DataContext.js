@@ -11,7 +11,8 @@ export const data = {
     {
         id: 2,
         nome: "Cliente 2"
-    }]
+    }],
+    fazendas: []
 }
 
 export default React.createContext(data);
