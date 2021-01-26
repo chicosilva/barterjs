@@ -21,6 +21,7 @@ export default props => {
             
             if(obj != undefined){
                 const children = props.itens_children.filter(c => c.clienteId == obj.id);
+                
                 dispatch({type: props.auxTypeAction, payload: children});
             }
             

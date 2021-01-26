@@ -5,6 +5,9 @@ export const actions = (state, payload) => ({
     selecionaFazenda: () => {
       return {...state, fazenda: payload}
     },
+    addProduto: () => {
+      return {...state, produtos: payload}
+    },
     atualizaListaFazendas: () => {
       return {...state, fazendas_cliente: payload}
     },

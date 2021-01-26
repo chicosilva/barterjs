@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
+import {useStateValue} from '../context/state'
 
 
 const FormProduto  = props => {
 
-    const [produto, setstate] = useState({nome: '', valor: 0})
+    const [produto, setState] = useState({nome: '', valor: 0, id: null})
+    const [state, dispatch] = useStateValue();
 
     const handleInputChange = (e) => {
         
@@ -15,12 +17,22 @@ const FormProduto  = props => {
             e.target.classList.add('is-invalid');
         }
 
-        setstate({...produto, [name]: value})
+        setState({...produto, [name]: value})
 
     }
 
+    const handleSubmit = (e) => {
+        
+        e.preventDefault();
+        
+        produto.id = state.produtos.length + 1;
+        dispatch({type: 'addProduto', payload: [...state.produtos, produto]});
+        setState({nome: '', valor: 0, id: null});
+        
+    }
+
     return(
-        <form>
+        <form onSubmit={handleSubmit}>
             <input className='form-control' name="nome" onChange={handleInputChange} value={produto.nome} placeholder="Nome do produto" />
             <br />
             <input className='form-control' name="valor" onChange={handleInputChange} value={produto.valor} placeholder="Valor" />

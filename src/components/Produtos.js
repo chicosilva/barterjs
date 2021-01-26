@@ -1,5 +1,3 @@
-import ProdutoContext from '../context/DataContext';
-import {useContext} from 'react';
 import RowProduto from './RowProduto'
 import {useStateValue} from '../context/state'
 import FormProduto from './Form'
@@ -8,7 +6,6 @@ import FormProduto from './Form'
 export default (props) => {
 
     const [state, dispatch] = useStateValue();
-
     const produtos = state.produtos.map(produto => <RowProduto produto={produto} key={produto.id} />)
 
     return (
