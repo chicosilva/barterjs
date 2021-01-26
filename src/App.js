@@ -6,7 +6,6 @@ import {StateProvider} from './context/state'
 import {actions} from './context/actions'
 import {data} from './context/DataContext'
 
-
 const reducer = (state, action = {type: '', payload: {}}) => {
   return actions(state, action.payload)[action.type]();
 }

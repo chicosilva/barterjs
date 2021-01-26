@@ -7,6 +7,9 @@ export default (props) => {
 
     return(
         <div className="col-md-3">
+            <br />
+            <h5>Totalização:</h5>
+            <br />
             <strong>Total:</strong> R$ {state.valorTotal}
             <br />
             <strong>Cliente:</strong> {state.cliente ? state.cliente.nome : "--"}

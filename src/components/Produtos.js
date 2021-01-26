@@ -1,54 +1,30 @@
 import ProdutoContext from '../context/DataContext';
 import {useContext} from 'react';
+import RowProduto from './RowProduto'
+import {useStateValue} from '../context/state'
+import FormProduto from './Form'
+
 
 export default (props) => {
 
-    const context = useContext(ProdutoContext);
+    const [state, dispatch] = useStateValue();
+
+    const produtos = state.produtos.map(produto => <RowProduto produto={produto} key={produto.id} />)
 
     return (
         
         <div className="col-md-7">
-        
+            
             <div className="row">
                 
                 <div className="col-md-12">
+                    <br />
+                        <FormProduto />
+                    <hr />
                     
-                    <br />
-                    <h5>Produtos:</h5>
-                    <br />
                 </div>
 
-                <div className="col-md-4">
-                    Nome do produto
-                </div>
-
-                <div className="col-md-4">
-                    R$ 6.600
-                </div>
-
-                <div className="col-md-4">
-                    <button className="btn btn-danger">Remover</button>
-                </div>
-
-                <div className="col-md-12">
-                    <hr />
-                </div>
-                <div className="col-md-4">
-                    Nome do produto
-                </div>
-
-                <div className="col-md-4">
-                    R$ 6.600
-                </div>
-
-                <div className="col-md-4">
-                    <button className="btn btn-danger">Remover</button>
-                </div>
-
-                <div className="col-md-12">
-                    <hr />
-                </div>
-
+                {produtos}
 
             </div>
 
