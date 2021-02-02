@@ -8,6 +8,11 @@ export const actions = (state, payload) => ({
     addProduto: () => {
       return {...state, produtos: payload}
     },
+    removerProduto: () => {
+      
+      const produtos = state.produtos.filter(item => item.id != payload.id );
+      return {...state, produtos: produtos}
+    },
     atualizaValorTotal: () => {
       
       const valorTotal = state.produtos.reduce(function(total, arr){

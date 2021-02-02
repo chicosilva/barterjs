@@ -1,5 +1,14 @@
+import {useStateValue} from '../context/state'
+
+
 export default props => {
     
+    const [state, dispatch] = useStateValue();
+
+    const remocaoProduto = (produto) => {
+        dispatch({type: "removerProduto", payload: produto})
+    }
+
     return(
         <div className="col-md-12">
             <div className="row">
@@ -12,7 +21,7 @@ export default props => {
                 </div>
 
                 <div className="col-md-4">
-                    <button className="btn btn-danger">Remover</button>
+                    <button type="button" onClick={ (e) => remocaoProduto(props.produto)} className="btn btn-danger">Remover</button>
                 </div>
                 <div className="col-md-12">
                     <hr />

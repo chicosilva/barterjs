@@ -27,6 +27,7 @@ const FormProduto  = props => {
         
         produto.id = state.produtos.length + 1;
         produto.valor = parseFloat(produto.valor);
+
         dispatch({type: 'addProduto', payload: [produto].concat(state.produtos)});
         dispatch({type: 'atualizaValorTotal'});
         
@@ -36,7 +37,7 @@ const FormProduto  = props => {
 
     return(
         <form onSubmit={handleSubmit}>
-            <input className='form-control' name="nome" onChange={handleInputChange} value={produto.nome} placeholder="Nome do produto" />
+            <input className='form-control' required name="nome" onChange={handleInputChange} value={produto.nome} placeholder="Nome do produto" />
             <br />
             <input className='form-control' name="valor" onChange={handleInputChange} value={produto.valor} placeholder="Valor" />
             <br />

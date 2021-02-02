@@ -15,8 +15,6 @@ export default (props) => {
             <strong>Cliente:</strong> {state.cliente ? state.cliente.nome : "--"}
             <br />
             <strong>Fazenda:</strong> {state.fazenda.nome || "--"}
-            <br />
-            <strong>Responsável:</strong> {state.responsavel || "--"}
         </div>
     )
 }
