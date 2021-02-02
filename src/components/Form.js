@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {useStateValue} from '../context/state'
 
 
@@ -13,7 +13,7 @@ const FormProduto  = props => {
         
         e.target.classList.remove('is-invalid');
 
-        if(value == ""){
+        if(value === ""){
             e.target.classList.add('is-invalid');
         }
 
@@ -26,7 +26,10 @@ const FormProduto  = props => {
         e.preventDefault();
         
         produto.id = state.produtos.length + 1;
-        dispatch({type: 'addProduto', payload: [...state.produtos, produto]});
+        produto.valor = parseFloat(produto.valor);
+        dispatch({type: 'addProduto', payload: [produto].concat(state.produtos)});
+        dispatch({type: 'atualizaValorTotal'});
+        
         setState({nome: '', valor: 0, id: null});
         
     }

@@ -8,6 +8,15 @@ export const actions = (state, payload) => ({
     addProduto: () => {
       return {...state, produtos: payload}
     },
+    atualizaValorTotal: () => {
+      
+      const valorTotal = state.produtos.reduce(function(total, arr){
+        return total + arr.valor;
+      }, 0);
+
+      return {...state, valorTotal: valorTotal};
+
+    },
     atualizaListaFazendas: () => {
       return {...state, fazendas_cliente: payload}
     },

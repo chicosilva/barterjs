@@ -3,15 +3,7 @@ import React from 'react';
 export const data = {
     responsavel: "",
     valorTotal: 0,
-    produtos:[{
-        id: 1,
-        nome: "Produto 1",
-        valor: 150
-    },{
-        id: 2,
-        nome: "Produto 2",
-        valor: 200
-    }],
+    produtos:[],
     cliente: {},
     fazenda: {},
     clientes: [{
