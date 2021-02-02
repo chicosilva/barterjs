@@ -6,7 +6,8 @@ export default props => {
     const [state, dispatch] = useStateValue();
 
     const remocaoProduto = (produto) => {
-        dispatch({type: "removerProduto", payload: produto})
+        dispatch({type: "removerProduto", payload: produto});
+        dispatch({type: 'atualizaValorTotal'});
     }
 
     return(

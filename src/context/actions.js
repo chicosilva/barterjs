@@ -10,7 +10,7 @@ export const actions = (state, payload) => ({
     },
     removerProduto: () => {
       
-      const produtos = state.produtos.filter(item => item.id != payload.id );
+      const produtos = state.produtos.filter(item => item.id !== payload.id );
       return {...state, produtos: produtos}
     },
     atualizaValorTotal: () => {
